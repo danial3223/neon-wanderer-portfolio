@@ -1,5 +1,5 @@
 
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import LocomotiveScroll from 'locomotive-scroll';
@@ -17,7 +17,6 @@ gsap.registerPlugin(ScrollTrigger);
 const Index = () => {
   const scrollRef = useRef<HTMLDivElement>(null);
   const locomotiveScrollRef = useRef<LocomotiveScroll | null>(null);
-  const [splineLoaded, setSplineLoaded] = useState(false);
 
   useEffect(() => {
     // Initialize Locomotive Scroll
@@ -57,34 +56,20 @@ const Index = () => {
     };
   }, []);
 
-  const handleSplineLoad = () => {
-    setSplineLoaded(true);
-  };
-
   return (
     <>
       <Preloader />
       
-      {/* Fixed Spline Background with Loading Optimization */}
+      {/* Fixed Spline Background */}
       <div className="fixed inset-0 z-0">
-        {/* Fallback gradient background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900"></div>
-        
-        {/* Spline iframe with loading optimization */}
         <iframe
           src="https://my.spline.design/orb-xe7Z6tFljiTL4Xg1KI95KLmR/"
           frameBorder="0"
           width="100%"
           height="100%"
-          className={`w-full h-full object-cover transition-opacity duration-1000 ${
-            splineLoaded ? 'opacity-100' : 'opacity-0'
-          }`}
-          onLoad={handleSplineLoad}
-          loading="lazy"
+          className="w-full h-full object-cover"
         />
-        
-        {/* Overlay to reduce visual intensity and improve text readability */}
-        <div className="absolute inset-0 bg-gray-900/40 backdrop-blur-[0.5px]"></div>
+        <div className="absolute inset-0 bg-gray-900/30 backdrop-blur-[1px]"></div>
       </div>
 
       <div ref={scrollRef} data-scroll-container className="relative z-10 min-h-screen text-white overflow-hidden">

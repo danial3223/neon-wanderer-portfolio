@@ -59,7 +59,20 @@ const Index = () => {
   return (
     <>
       <Preloader />
-      <div ref={scrollRef} data-scroll-container className="min-h-screen bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900 text-white overflow-hidden">
+      
+      {/* Fixed Spline Background */}
+      <div className="fixed inset-0 z-0">
+        <iframe
+          src="https://my.spline.design/orb-xe7Z6tFljiTL4Xg1KI95KLmR/"
+          frameBorder="0"
+          width="100%"
+          height="100%"
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gray-900/30 backdrop-blur-[1px]"></div>
+      </div>
+
+      <div ref={scrollRef} data-scroll-container className="relative z-10 min-h-screen text-white overflow-hidden">
         <Navigation />
         <Hero />
         <About />

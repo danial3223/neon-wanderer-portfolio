@@ -114,7 +114,7 @@ const Hero = () => {
         {/* Right Content - Spline 3D Model */}
         <div ref={splineRef} className="relative h-96 lg:h-[600px]">
           <iframe
-            src="https://my.spline.design/nexbotrobotcharacterconcept-wxK8rdc7YsMiOqAwIZP17PCn/"
+            src="https://my.spline.design/orb-xe7Z6tFljiTL4Xg1KI95KLmR/"
             frameBorder="0"
             width="100%"
             height="100%"

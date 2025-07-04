@@ -65,12 +65,12 @@ const Index = () => {
     <>
       <Preloader />
       
-      {/* Fixed Spline Background */}
+      {/* Fixed Spline Background with Loading Optimization */}
       <div className="fixed inset-0 z-0">
         {/* Fallback gradient background */}
         <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900"></div>
         
-        {/* Spline 3D Background */}
+        {/* Spline iframe with loading optimization */}
         <iframe
           src="https://my.spline.design/orb-xe7Z6tFljiTL4Xg1KI95KLmR/"
           frameBorder="0"

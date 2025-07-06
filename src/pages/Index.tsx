@@ -4,7 +4,6 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import LocomotiveScroll from 'locomotive-scroll';
 import 'locomotive-scroll/dist/locomotive-scroll.css';
-import Hero from '../components/Hero';
 import About from '../components/About';
 import Projects from '../components/Projects';
 import Contact from '../components/Contact';
@@ -60,21 +59,18 @@ const Index = () => {
     <>
       <Preloader />
       
-      {/* Fixed Spline Background */}
+      {/* Fixed Background Image */}
       <div className="fixed inset-0 z-0">
-        <iframe
-          src="https://my.spline.design/orb-xe7Z6tFljiTL4Xg1KI95KLmR/"
-          frameBorder="0"
-          width="100%"
-          height="100%"
+        <img
+          src="/lovable-uploads/0d3d0948-776a-410b-b5cf-aa47a16e77b3.png"
+          alt="Background"
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gray-900/30 backdrop-blur-[1px]"></div>
+        <div className="absolute inset-0 bg-gray-900/60 backdrop-blur-[1px]"></div>
       </div>
 
       <div ref={scrollRef} data-scroll-container className="relative z-10 min-h-screen text-white overflow-hidden">
         <Navigation />
-        <Hero />
         <About />
         <Projects />
         <Contact />

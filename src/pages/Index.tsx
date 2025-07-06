@@ -56,14 +56,17 @@ const Index = () => {
 
   return (
     <>
-      {/* Fixed Background Image */}
+      {/* Fixed Background Image - Optimized for fast loading */}
       <div className="fixed inset-0 z-0">
         <img
-          src="/lovable-uploads/0f8f788d-33ac-4a48-8d6c-d9d3e8c46187.png"
-          alt="Background"
+          src="/lovable-uploads/77b50d74-5d3d-4f1d-b61f-9219ddf7df21.png"
+          alt="Career Background"
           className="w-full h-full object-cover"
+          loading="eager"
+          decoding="sync"
+          style={{ imageRendering: 'crisp-edges' }}
         />
-        <div className="absolute inset-0 bg-gray-900/40 backdrop-blur-[0.5px]"></div>
+        <div className="absolute inset-0 bg-black/20"></div>
       </div>
 
       <div ref={scrollRef} data-scroll-container className="relative z-10 min-h-screen text-white overflow-hidden">

@@ -8,7 +8,6 @@ import About from '../components/About';
 import Projects from '../components/Projects';
 import Contact from '../components/Contact';
 import Footer from '../components/Footer';
-import Preloader from '../components/Preloader';
 import Navigation from '../components/Navigation';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -57,16 +56,14 @@ const Index = () => {
 
   return (
     <>
-      <Preloader />
-      
       {/* Fixed Background Image */}
       <div className="fixed inset-0 z-0">
         <img
-          src="/lovable-uploads/0d3d0948-776a-410b-b5cf-aa47a16e77b3.png"
+          src="/lovable-uploads/0f8f788d-33ac-4a48-8d6c-d9d3e8c46187.png"
           alt="Background"
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gray-900/60 backdrop-blur-[1px]"></div>
+        <div className="absolute inset-0 bg-gray-900/40 backdrop-blur-[0.5px]"></div>
       </div>
 
       <div ref={scrollRef} data-scroll-container className="relative z-10 min-h-screen text-white overflow-hidden">

@@ -15,8 +15,8 @@ const About = () => {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // Hero content animations (from previous Hero component)
-      const tl = gsap.timeline({ delay: 4 });
+      // Hero content animations (no delay since preloader is removed)
+      const tl = gsap.timeline({ delay: 0.5 });
 
       tl.fromTo(
         titleRef.current,
@@ -105,6 +105,13 @@ const About = () => {
     return () => ctx.revert();
   }, []);
 
+  const handleContactClick = () => {
+    const contactSection = document.getElementById('contact');
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   const skills = [
     { name: 'HTML5', icon: '🌐' },
     { name: 'CSS3', icon: '🎨' },
@@ -116,7 +123,7 @@ const About = () => {
 
   return (
     <>
-      {/* Hero Section (moved from Hero component) */}
+      {/* Hero Section */}
       <section id="home" ref={heroRef} className="relative min-h-screen flex items-center justify-center overflow-hidden">
         <div className="hero-content relative z-10 max-w-7xl mx-auto px-6 flex flex-col items-center text-center">
           <h1
@@ -142,7 +149,8 @@ const About = () => {
 
           <button
             ref={ctaRef}
-            className="group relative px-8 py-4 bg-gradient-to-r from-cyan-500 to-purple-600 rounded-full text-white font-medium text-lg shadow-lg shadow-cyan-500/25 hover:shadow-cyan-500/40 transition-all duration-300"
+            onClick={handleContactClick}
+            className="group relative px-8 py-4 bg-gradient-to-r from-cyan-500 to-purple-600 rounded-full text-white font-medium text-lg shadow-lg shadow-cyan-500/25 hover:shadow-cyan-500/40 transition-all duration-300 cursor-pointer"
           >
             <span className="relative z-10">Contact Me</span>
             <div className="absolute inset-0 bg-gradient-to-r from-cyan-400 to-purple-500 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-sm"></div>

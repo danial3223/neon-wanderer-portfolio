@@ -91,27 +91,34 @@ const Contact = () => {
       ease: 'power2.out',
     });
 
+    // Create mailto link with form data
+    const subject = encodeURIComponent(`Message from ${formData.name}`);
+    const body = encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`);
+    const mailtoLink = `mailto:peerzadagebran@gmail.com?subject=${subject}&body=${body}`;
+    
+    // Open email client
+    window.location.href = mailtoLink;
+    
     console.log('Form submitted:', formData);
-    // Here you would typically send the form data to your backend
   };
 
   return (
-    <section id="contact" ref={sectionRef} className="py-20 px-6" data-scroll-section>
+    <section id="contact" ref={sectionRef} className="py-16 px-6" data-scroll-section>
       <div className="max-w-4xl mx-auto">
-        <div className="text-center mb-12">
-          <h2 className="text-5xl md:text-6xl font-bold mb-6">
+        <div className="text-center mb-8">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4">
             <span className="bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent">
               Get In Touch
             </span>
           </h2>
-          <p className="text-xl text-white/70 max-w-2xl mx-auto">
+          <p className="text-lg text-white max-w-2xl mx-auto">
             Have a project in mind or just want to say hello? Drop me a message and let's create something amazing together.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {/* Contact Form */}
-          <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
+          <form ref={formRef} onSubmit={handleSubmit} className="space-y-4">
             <div className="form-input">
               <input
                 type="text"
@@ -119,7 +126,7 @@ const Contact = () => {
                 placeholder="Your Name"
                 value={formData.name}
                 onChange={handleInputChange}
-                className="w-full px-6 py-4 bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl text-white placeholder-white/50 focus:border-cyan-400/50 focus:outline-none focus:shadow-lg focus:shadow-cyan-500/20 transition-all duration-300"
+                className="w-full px-6 py-3 bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl text-white placeholder-white/50 focus:border-cyan-400/50 focus:outline-none focus:shadow-lg focus:shadow-cyan-500/20 transition-all duration-300"
                 required
               />
             </div>
@@ -131,7 +138,7 @@ const Contact = () => {
                 placeholder="Your Email"
                 value={formData.email}
                 onChange={handleInputChange}
-                className="w-full px-6 py-4 bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl text-white placeholder-white/50 focus:border-cyan-400/50 focus:outline-none focus:shadow-lg focus:shadow-cyan-500/20 transition-all duration-300"
+                className="w-full px-6 py-3 bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl text-white placeholder-white/50 focus:border-cyan-400/50 focus:outline-none focus:shadow-lg focus:shadow-cyan-500/20 transition-all duration-300"
                 required
               />
             </div>
@@ -140,55 +147,55 @@ const Contact = () => {
               <textarea
                 name="message"
                 placeholder="Your Message"
-                rows={6}
+                rows={5}
                 value={formData.message}
                 onChange={handleInputChange}
-                className="w-full px-6 py-4 bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl text-white placeholder-white/50 focus:border-cyan-400/50 focus:outline-none focus:shadow-lg focus:shadow-cyan-500/20 transition-all duration-300 resize-none"
+                className="w-full px-6 py-3 bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl text-white placeholder-white/50 focus:border-cyan-400/50 focus:outline-none focus:shadow-lg focus:shadow-cyan-500/20 transition-all duration-300 resize-none"
                 required
               />
             </div>
 
             <button
               type="submit"
-              className="submit-btn w-full px-8 py-4 bg-gradient-to-r from-cyan-500 to-purple-600 rounded-xl text-white font-medium text-lg shadow-lg shadow-cyan-500/25 hover:shadow-cyan-500/40 hover:scale-105 transition-all duration-300"
+              className="submit-btn w-full px-8 py-3 bg-gradient-to-r from-cyan-500 to-purple-600 rounded-xl text-white font-medium text-lg shadow-lg shadow-cyan-500/25 hover:shadow-cyan-500/40 hover:scale-105 transition-all duration-300"
             >
               Send Message
             </button>
           </form>
 
           {/* Contact Info & Social */}
-          <div className="space-y-8">
-            <div className="space-y-6">
-              <h3 className="text-2xl font-semibold text-white/90">Contact Info</h3>
+          <div className="space-y-6">
+            <div className="space-y-4">
+              <h3 className="text-xl font-semibold text-white">Contact Info</h3>
               
-              <div className="space-y-4">
-                <div className="flex items-center space-x-4 text-white/70">
-                  <div className="w-12 h-12 bg-cyan-500/20 rounded-full flex items-center justify-center">
+              <div className="space-y-3">
+                <div className="flex items-center space-x-3 text-white">
+                  <div className="w-10 h-10 bg-cyan-500/20 rounded-full flex items-center justify-center">
                     📧
                   </div>
-                  <span>hello@peerzadahanan.com</span>
+                  <span>peerzadagebran@gmail.com</span>
                 </div>
 
-                <div className="flex items-center space-x-4 text-white/70">
-                  <div className="w-12 h-12 bg-purple-500/20 rounded-full flex items-center justify-center">
+                <div className="flex items-center space-x-3 text-white">
+                  <div className="w-10 h-10 bg-purple-500/20 rounded-full flex items-center justify-center">
                     📱
                   </div>
-                  <span>+1 (234) 567-890</span>
+                  <span>+91 (234) 567-890</span>
                 </div>
 
-                <div className="flex items-center space-x-4 text-white/70">
-                  <div className="w-12 h-12 bg-blue-500/20 rounded-full flex items-center justify-center">
+                <div className="flex items-center space-x-3 text-white">
+                  <div className="w-10 h-10 bg-blue-500/20 rounded-full flex items-center justify-center">
                     📍
                   </div>
-                  <span>San Francisco, CA</span>
+                  <span>Srinagar, Jammu and Kashmir, India</span>
                 </div>
               </div>
             </div>
 
             {/* Social Icons */}
-            <div className="space-y-6">
-              <h3 className="text-2xl font-semibold text-white/90">Connect With Me</h3>
-              <div className="social-icons flex space-x-4">
+            <div className="space-y-4">
+              <h3 className="text-xl font-semibold text-white">Connect With Me</h3>
+              <div className="social-icons flex space-x-3">
                 {[
                   { name: 'GitHub', icon: '🐙', link: '#' },
                   { name: 'LinkedIn', icon: '💼', link: '#' },
@@ -198,7 +205,7 @@ const Contact = () => {
                   <a
                     key={social.name}
                     href={social.link}
-                    className="social-icon group w-14 h-14 bg-white/5 backdrop-blur-sm border border-white/10 rounded-full flex items-center justify-center text-2xl hover:border-cyan-400/50 hover:shadow-lg hover:shadow-cyan-500/20 hover:scale-110 transition-all duration-300"
+                    className="social-icon group w-12 h-12 bg-white/5 backdrop-blur-sm border border-white/10 rounded-full flex items-center justify-center text-xl hover:border-cyan-400/50 hover:shadow-lg hover:shadow-cyan-500/20 hover:scale-110 transition-all duration-300"
                   >
                     {social.icon}
                   </a>

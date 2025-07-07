@@ -60,8 +60,8 @@ const Index = () => {
       {/* Fixed Background Image */}
       <div className="fixed inset-0 z-0">
         <img
-          src="/lovable-uploads/c1bafc1a-e241-4792-adf8-e7360d31e597.png"
-          alt="Mountain Landscape Background"
+          src="/lovable-uploads/7375f227-39d8-440f-9955-ebe2ac06298d.png"
+          alt="Abstract Blue Flowing Design Background"
           className="w-full h-full object-cover"
           loading="eager"
           decoding="sync"

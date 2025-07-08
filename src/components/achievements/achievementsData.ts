@@ -1,9 +1,9 @@
 
 import { AchievementItem, Tab } from './types';
-import { GraduationCap, Award, Certificate, Trophy, Target } from 'lucide-react';
+import { GraduationCap, Award, FileText, Trophy, Target } from 'lucide-react';
 
 export const tabs: Tab[] = [
-  { id: 'certificates', label: 'Certificates', icon: Certificate },
+  { id: 'certificates', label: 'Certificates', icon: FileText },
   { id: 'academic', label: 'Academic', icon: GraduationCap },
   { id: 'scholarships', label: 'Scholarships', icon: Award },
   { id: 'events', label: 'Events', icon: Trophy },

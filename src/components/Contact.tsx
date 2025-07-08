@@ -62,7 +62,7 @@ const Contact = () => {
       <div className="max-w-4xl mx-auto">
         <div className="text-center mb-8">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            <span className="bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-amber-400 via-orange-500 to-yellow-600 bg-clip-text text-transparent">
               Get In Touch
             </span>
           </h2>
@@ -81,7 +81,7 @@ const Contact = () => {
                 placeholder="Your Name"
                 value={formData.name}
                 onChange={handleInputChange}
-                className="w-full px-4 py-3 bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg text-white placeholder-white/60 focus:border-cyan-400/50 focus:outline-none transition-all duration-300"
+                className="w-full px-4 py-3 bg-white/10 backdrop-blur-sm border border-amber-400/30 rounded-lg text-white placeholder-white/60 focus:border-amber-400/70 focus:outline-none transition-all duration-300 focus:shadow-lg focus:shadow-amber-500/20"
                 required
               />
             </div>
@@ -93,7 +93,7 @@ const Contact = () => {
                 placeholder="Your Email"
                 value={formData.email}
                 onChange={handleInputChange}
-                className="w-full px-4 py-3 bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg text-white placeholder-white/60 focus:border-cyan-400/50 focus:outline-none transition-all duration-300"
+                className="w-full px-4 py-3 bg-white/10 backdrop-blur-sm border border-amber-400/30 rounded-lg text-white placeholder-white/60 focus:border-amber-400/70 focus:outline-none transition-all duration-300 focus:shadow-lg focus:shadow-amber-500/20"
                 required
               />
             </div>
@@ -105,14 +105,14 @@ const Contact = () => {
                 rows={4}
                 value={formData.message}
                 onChange={handleInputChange}
-                className="w-full px-4 py-3 bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg text-white placeholder-white/60 focus:border-cyan-400/50 focus:outline-none transition-all duration-300 resize-none"
+                className="w-full px-4 py-3 bg-white/10 backdrop-blur-sm border border-amber-400/30 rounded-lg text-white placeholder-white/60 focus:border-amber-400/70 focus:outline-none transition-all duration-300 resize-none focus:shadow-lg focus:shadow-amber-500/20"
                 required
               />
             </div>
 
             <button
               type="submit"
-              className="w-full px-6 py-3 bg-gradient-to-r from-cyan-500 to-purple-600 rounded-lg text-white font-medium hover:scale-105 transition-transform duration-300"
+              className="w-full px-6 py-3 bg-gradient-to-r from-amber-600 via-orange-600 to-yellow-600 rounded-lg text-white font-medium hover:scale-105 transition-transform duration-300 shadow-lg hover:shadow-amber-500/25"
             >
               Send Message
             </button>
@@ -125,21 +125,21 @@ const Contact = () => {
               
               <div className="space-y-3">
                 <div className="flex items-center space-x-3 text-white">
-                  <div className="w-8 h-8 bg-cyan-500/20 rounded-full flex items-center justify-center text-sm">
+                  <div className="w-8 h-8 bg-amber-500/20 rounded-full flex items-center justify-center text-sm">
                     📧
                   </div>
                   <span className="text-sm">peerzadagebran698@gmail.com</span>
                 </div>
 
                 <div className="flex items-center space-x-3 text-white">
-                  <div className="w-8 h-8 bg-purple-500/20 rounded-full flex items-center justify-center text-sm">
+                  <div className="w-8 h-8 bg-orange-500/20 rounded-full flex items-center justify-center text-sm">
                     📱
                   </div>
                   <span className="text-sm">+91 (234) 567-890</span>
                 </div>
 
                 <div className="flex items-center space-x-3 text-white">
-                  <div className="w-8 h-8 bg-blue-500/20 rounded-full flex items-center justify-center text-sm">
+                  <div className="w-8 h-8 bg-yellow-500/20 rounded-full flex items-center justify-center text-sm">
                     📍
                   </div>
                   <span className="text-sm">Srinagar, Jammu and Kashmir, India</span>
@@ -160,7 +160,7 @@ const Contact = () => {
                   <a
                     key={social.name}
                     href={social.link}
-                    className="w-10 h-10 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full flex items-center justify-center hover:scale-110 transition-transform duration-300"
+                    className="w-10 h-10 bg-white/10 backdrop-blur-sm border border-amber-400/30 rounded-full flex items-center justify-center hover:scale-110 transition-transform duration-300 hover:border-amber-400/70 hover:shadow-lg hover:shadow-amber-500/20"
                   >
                     {social.icon}
                   </a>

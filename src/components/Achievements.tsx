@@ -1,21 +1,25 @@
-
 import { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { Award, Book, Trophy, Calendar } from 'lucide-react';
-import CertificateModal from './CertificateModal';
+import { achievementsData } from './achievements/achievementsData';
+import { tabs } from './achievements/achievementsData';
+import { AchievementItem } from './achievements/types';
 import TabNavigation from './achievements/TabNavigation';
 import AchievementCard from './achievements/AchievementCard';
-import { AchievementItem, Tab } from './achievements/types';
-import { achievementsData } from './achievements/achievementsData';
+import CertificateModal from './CertificateModal';
 
 const Achievements = () => {
+  const [activeTab, setActiveTab] = useState('certificates');
+  const [likedItems, setLikedItems] = useState<number[]>([]);
+  const [selectedCertificate, setSelectedCertificate] = useState<{
+    title: string;
+    image?: string;
+    description: string;
+    date: string;
+  } | null>(null);
   const sectionRef = useRef<HTMLDivElement>(null);
-  const [activeTab, setActiveTab] = useState<string>('certificate');
-  const [likedItems, setLikedItems] = useState<Set<number>>(new Set());
-  const [selectedCertificate, setSelectedCertificate] = useState<AchievementItem | null>(null);
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [achievements, setAchievements] = useState<AchievementItem[]>(achievementsData);
+  const titleRef = useRef<HTMLHeadingElement>(null);
+  const cardsRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -37,78 +41,77 @@ const Achievements = () => {
     return () => ctx.revert();
   }, []);
 
-  const tabs: Tab[] = [
-    { id: 'certificate', label: 'Certificates', icon: Trophy },
-    { id: 'academic', label: 'Academic', icon: Book },
-    { id: 'scholarship', label: 'Scholarships', icon: Award },
-    { id: 'result', label: 'Results', icon: Trophy },
-    { id: 'event', label: 'Events', icon: Calendar },
-  ];
-
-  const filteredAchievements = achievements.filter(item => item.category === activeTab);
-
   const handleLike = (itemId: number) => {
-    setLikedItems(prev => {
-      const newSet = new Set(prev);
-      if (newSet.has(itemId)) {
-        newSet.delete(itemId);
-        setAchievements(prevItems => 
-          prevItems.map(item => item.id === itemId ? { ...item, likes: item.likes - 1 } : item)
-        );
-      } else {
-        newSet.add(itemId);
-        setAchievements(prevItems => 
-          prevItems.map(item => item.id === itemId ? { ...item, likes: item.likes + 1 } : item)
-        );
-      }
-      return newSet;
-    });
+    setLikedItems(prev => 
+      prev.includes(itemId) 
+        ? prev.filter(id => id !== itemId)
+        : [...prev, itemId]
+    );
   };
 
   const handleCertificateClick = (item: AchievementItem) => {
-    if (item.image && item.category === 'certificate') {
-      setSelectedCertificate(item);
-      setIsModalOpen(true);
+    if (item.category === 'certificate' && item.image) {
+      setSelectedCertificate({
+        title: item.title,
+        image: item.image,
+        description: item.description,
+        date: item.date
+      });
     }
   };
 
-  const handleCloseModal = () => {
-    setIsModalOpen(false);
-    setSelectedCertificate(null);
-  };
+  const filteredAchievements = achievementsData.filter(item => {
+    switch (activeTab) {
+      case 'academic':
+        return item.category === 'academic';
+      case 'scholarships':
+        return item.category === 'scholarship';
+      case 'certificates':
+        return item.category === 'certificate';
+      case 'events':
+        return item.category === 'event';
+      case 'results':
+        return item.category === 'result';
+      default:
+        return true;
+    }
+  });
 
   return (
-    <section id="achievements" ref={sectionRef} className="py-16 px-6" data-scroll-section>
-      <div className="max-w-6xl mx-auto">
-        <h2 className="text-4xl md:text-5xl font-bold text-center mb-12 text-white">
-          My Achievements
-        </h2>
+    <>
+      <section id="achievements" ref={sectionRef} className="py-16 px-6" data-scroll-section>
+        <div className="max-w-7xl mx-auto">
+          <h2 ref={titleRef} className="text-4xl md:text-5xl font-bold text-center mb-12 text-white">
+            My Achievements
+          </h2>
 
-        <TabNavigation
-          tabs={tabs}
-          activeTab={activeTab}
-          onTabChange={setActiveTab}
-        />
+          <TabNavigation 
+            tabs={tabs}
+            activeTab={activeTab}
+            onTabChange={setActiveTab}
+          />
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredAchievements.map((item) => (
-            <AchievementCard
-              key={item.id}
-              item={item}
-              isLiked={likedItems.has(item.id)}
-              onLike={handleLike}
-              onCertificateClick={handleCertificateClick}
-            />
-          ))}
+          <div ref={cardsRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {filteredAchievements.map((item) => (
+              <AchievementCard
+                key={item.id}
+                item={item}
+                isLiked={likedItems.includes(item.id)}
+                onLike={handleLike}
+                onClick={handleCertificateClick}
+              />
+            ))}
+          </div>
         </div>
-      </div>
+      </section>
 
-      <CertificateModal
-        isOpen={isModalOpen}
-        onClose={handleCloseModal}
-        certificate={selectedCertificate}
-      />
-    </section>
+      {selectedCertificate && (
+        <CertificateModal
+          certificate={selectedCertificate}
+          onClose={() => setSelectedCertificate(null)}
+        />
+      )}
+    </>
   );
 };
 

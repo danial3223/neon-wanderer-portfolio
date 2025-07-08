@@ -1,8 +1,8 @@
-
 import { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Heart, Award, Book, Trophy, Calendar } from 'lucide-react';
+import CertificateModal from './CertificateModal';
 
 interface AchievementItem {
   id: number;
@@ -18,6 +18,8 @@ const Achievements = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
   const [activeTab, setActiveTab] = useState<string>('certificate');
   const [likedItems, setLikedItems] = useState<Set<number>>(new Set());
+  const [selectedCertificate, setSelectedCertificate] = useState<AchievementItem | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -186,6 +188,18 @@ const Achievements = () => {
     });
   };
 
+  const handleCertificateClick = (item: AchievementItem) => {
+    if (item.image && item.category === 'certificate') {
+      setSelectedCertificate(item);
+      setIsModalOpen(true);
+    }
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+    setSelectedCertificate(null);
+  };
+
   return (
     <section id="achievements" ref={sectionRef} className="py-16 px-6" data-scroll-section>
       <div className="max-w-6xl mx-auto">
@@ -226,7 +240,10 @@ const Achievements = () => {
                   <img
                     src={item.image}
                     alt={item.title}
-                    className="w-full h-48 object-cover rounded-lg border border-white/20"
+                    className={`w-full h-48 object-cover rounded-lg border border-white/20 ${
+                      item.category === 'certificate' ? 'cursor-pointer hover:opacity-80 transition-opacity' : ''
+                    }`}
+                    onClick={() => handleCertificateClick(item)}
                   />
                 </div>
               )}
@@ -255,11 +272,20 @@ const Achievements = () => {
               
               <div className="flex justify-between items-center pt-3 border-t border-white/10">
                 <span className="text-white/60 text-sm">{item.likes} likes</span>
+                {item.image && item.category === 'certificate' && (
+                  <span className="text-cyan-400 text-xs">Click image to view full certificate</span>
+                )}
               </div>
             </div>
           ))}
         </div>
       </div>
+
+      <CertificateModal
+        isOpen={isModalOpen}
+        onClose={handleCloseModal}
+        certificate={selectedCertificate}
+      />
     </section>
   );
 };

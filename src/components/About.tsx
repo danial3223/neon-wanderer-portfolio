@@ -132,7 +132,7 @@ const About = () => {
               <div className="relative w-72 h-72 mx-auto">
                 <div className="relative w-full h-full rounded-full overflow-hidden border-4 border-white/20">
                   <img
-                    src="/lovable-uploads/aadd41b0-29ff-4ae3-a8bb-59387409dbbc.png"
+                    src="/lovable-uploads/9e296619-597d-4820-94b8-c0da8ca5dc87.png"
                     alt="Peerzada Hanan"
                     className="w-full h-full object-cover hover:scale-110 transition-all duration-500 ease-out"
                   />

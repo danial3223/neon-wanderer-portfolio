@@ -2,18 +2,17 @@
 import { X } from 'lucide-react';
 
 interface CertificateModalProps {
-  isOpen: boolean;
-  onClose: () => void;
   certificate: {
     title: string;
-    image: string;
+    image?: string;
     description: string;
     date: string;
   } | null;
+  onClose: () => void;
 }
 
-const CertificateModal = ({ isOpen, onClose, certificate }: CertificateModalProps) => {
-  if (!isOpen || !certificate) return null;
+const CertificateModal = ({ certificate, onClose }: CertificateModalProps) => {
+  if (!certificate) return null;
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
@@ -30,13 +29,15 @@ const CertificateModal = ({ isOpen, onClose, certificate }: CertificateModalProp
         </div>
         
         <div className="p-6">
-          <div className="mb-6">
-            <img
-              src={certificate.image}
-              alt={certificate.title}
-              className="w-full h-auto rounded-lg border border-white/20"
-            />
-          </div>
+          {certificate.image && (
+            <div className="mb-6">
+              <img
+                src={certificate.image}
+                alt={certificate.title}
+                className="w-full h-auto rounded-lg border border-white/20"
+              />
+            </div>
+          )}
           
           <div className="space-y-4">
             <p className="text-white/70 text-lg leading-relaxed">

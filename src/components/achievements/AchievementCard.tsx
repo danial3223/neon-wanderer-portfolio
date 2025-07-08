@@ -6,10 +6,10 @@ interface AchievementCardProps {
   item: AchievementItem;
   isLiked: boolean;
   onLike: (itemId: number) => void;
-  onCertificateClick: (item: AchievementItem) => void;
+  onClick: (item: AchievementItem) => void;
 }
 
-const AchievementCard = ({ item, isLiked, onLike, onCertificateClick }: AchievementCardProps) => {
+const AchievementCard = ({ item, isLiked, onLike, onClick }: AchievementCardProps) => {
   return (
     <div className="bg-white/10 backdrop-blur-sm rounded-xl border border-white/20 p-6 hover:border-cyan-400/50 transition-all duration-300 hover:scale-105">
       {item.image && (
@@ -20,7 +20,7 @@ const AchievementCard = ({ item, isLiked, onLike, onCertificateClick }: Achievem
             className={`w-full h-48 object-cover rounded-lg border border-white/20 ${
               item.category === 'certificate' ? 'cursor-pointer hover:opacity-80 transition-opacity' : ''
             }`}
-            onClick={() => onCertificateClick(item)}
+            onClick={() => onClick(item)}
           />
         </div>
       )}

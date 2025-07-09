@@ -193,131 +193,153 @@ const About = () => {
             </span>
           </h1>
 
-          {/* Subtitle with cinematic depth */}
-          <p
-            ref={subtitleRef}
-            className="text-lg md:text-xl text-white/80 font-light max-w-3xl leading-relaxed mb-12 relative"
-            style={{
-              textShadow: '0 4px 8px rgba(0, 0, 0, 0.3)'
-            }}
-          >
-            <span className="relative">
-              Crafting <span className="text-cyan-400 font-medium">digital experiences</span> that inspire and engage through 
-              <span className="text-blue-400 font-medium"> innovative design</span> and cutting-edge technology.
-              <div className="absolute -inset-2 bg-gradient-to-r from-cyan-500/5 via-blue-500/5 to-purple-500/5 rounded-lg blur-xl"></div>
-            </span>
-          </p>
+          {/* Subtitle with cinematic depth and better background */}
+          <div className="relative mb-12">
+            {/* Enhanced background for subtitle */}
+            <div className="absolute inset-0 bg-black/40 backdrop-blur-sm rounded-2xl border border-cyan-400/20"></div>
+            <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/5 via-blue-500/10 to-purple-500/5 rounded-2xl blur-xl"></div>
+            
+            <p
+              ref={subtitleRef}
+              className="relative text-lg md:text-xl text-white font-light max-w-3xl leading-relaxed px-8 py-6"
+              style={{
+                textShadow: '0 4px 8px rgba(0, 0, 0, 0.8)'
+              }}
+            >
+              Crafting <span className="text-cyan-300 font-medium">digital experiences</span> that inspire and engage through 
+              <span className="text-blue-300 font-medium"> innovative design</span> and cutting-edge technology.
+            </p>
+          </div>
 
-          {/* Futuristic CTA Button */}
+          {/* Enhanced Futuristic CTA Button */}
           <button
             ref={ctaRef}
             onClick={handleContactClick}
-            className="group relative px-10 py-5 font-semibold text-lg overflow-hidden rounded-xl transition-all duration-500 hover:scale-110"
+            className="group relative px-12 py-6 font-bold text-xl overflow-hidden rounded-2xl transition-all duration-500 hover:scale-110 shadow-2xl shadow-cyan-500/50"
           >
-            {/* Button background layers */}
-            <div className="absolute inset-0 bg-gradient-to-r from-cyan-600 via-blue-600 to-indigo-600 rounded-xl"></div>
-            <div className="absolute inset-0 bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+            {/* Multiple background layers for better visibility */}
+            <div className="absolute inset-0 bg-black/60 rounded-2xl"></div>
+            <div className="absolute inset-0 bg-gradient-to-r from-cyan-600 via-blue-600 to-indigo-600 rounded-2xl"></div>
+            <div className="absolute inset-0 bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             
-            {/* Glowing border */}
-            <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 p-0.5">
-              <div className="h-full w-full bg-gray-900/50 rounded-xl"></div>
+            {/* Enhanced glowing border */}
+            <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 p-1">
+              <div className="h-full w-full bg-black/80 rounded-2xl"></div>
             </div>
             
             {/* Button content */}
-            <span className="relative z-10 text-white group-hover:text-white transition-colors duration-300">
+            <span className="relative z-10 text-white drop-shadow-lg group-hover:text-white transition-colors duration-300">
               Contact Me
             </span>
             
-            {/* Hover glow effect */}
-            <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 opacity-0 group-hover:opacity-30 blur-xl transition-opacity duration-500"></div>
+            {/* Enhanced hover glow effect */}
+            <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 opacity-0 group-hover:opacity-40 blur-2xl transition-opacity duration-500"></div>
             
             {/* Scan line effect */}
-            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000 skew-x-12"></div>
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000 skew-x-12"></div>
           </button>
         </div>
       </section>
 
-      {/* Enhanced About Section */}
+      {/* Enhanced About Section with Better Text Visibility */}
       <section 
         id="about" 
         ref={sectionRef} 
         className="py-20 px-6 relative" 
         data-scroll-section
       >
-        {/* Enhanced Neon Glow Background */}
-        <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/5 via-blue-500/5 to-indigo-500/5 rounded-3xl blur-3xl animate-pulse"></div>
-        <div className="absolute inset-2 bg-gradient-to-r from-cyan-400/3 via-blue-400/3 to-purple-400/3 rounded-2xl blur-2xl"></div>
-        <div className="absolute inset-4 bg-gradient-to-r from-cyan-300/2 via-blue-300/2 to-indigo-300/2 rounded-xl blur-xl"></div>
+        {/* Enhanced Neon Glow Background with stronger opacity */}
+        <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/15 via-blue-500/15 to-indigo-500/15 rounded-3xl blur-3xl animate-pulse"></div>
+        <div className="absolute inset-2 bg-gradient-to-r from-cyan-400/10 via-blue-400/10 to-purple-400/10 rounded-2xl blur-2xl"></div>
+        <div className="absolute inset-4 bg-gradient-to-r from-cyan-300/8 via-blue-300/8 to-indigo-300/8 rounded-xl blur-xl"></div>
+        
+        {/* Additional dark overlay for text readability */}
+        <div className="absolute inset-0 bg-black/30 rounded-3xl"></div>
         
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            {/* Enhanced Profile Image */}
+            {/* Enhanced Profile Image with better contrast */}
             <div ref={imageRef} className="relative">
               <div className="relative w-80 h-80 mx-auto">
-                {/* Multiple glowing rings */}
-                <div className="absolute inset-0 rounded-full border-2 border-cyan-400/30 animate-pulse"></div>
-                <div className="absolute inset-2 rounded-full border border-blue-400/20 animate-pulse" style={{ animationDelay: '0.5s' }}></div>
-                <div className="absolute inset-4 rounded-full border border-indigo-400/10 animate-pulse" style={{ animationDelay: '1s' }}></div>
+                {/* Enhanced glowing rings with better visibility */}
+                <div className="absolute inset-0 rounded-full border-4 border-cyan-400/60 animate-pulse shadow-lg shadow-cyan-400/40"></div>
+                <div className="absolute inset-2 rounded-full border-2 border-blue-400/40 animate-pulse shadow-lg shadow-blue-400/30" style={{ animationDelay: '0.5s' }}></div>
+                <div className="absolute inset-4 rounded-full border border-indigo-400/20 animate-pulse" style={{ animationDelay: '1s' }}></div>
                 
-                <div className="relative w-full h-full rounded-full overflow-hidden border-4 border-cyan-500/40 shadow-2xl shadow-cyan-500/25">
+                <div className="relative w-full h-full rounded-full overflow-hidden border-4 border-cyan-500/60 shadow-2xl shadow-cyan-500/40">
                   <img
                     src="/lovable-uploads/cb42e6bc-89a5-4b90-8234-3b0cef548720.png"
                     alt="Peerzada Hanan"
                     className="w-full h-full object-cover object-center hover:scale-110 transition-all duration-700 ease-out"
                   />
-                  {/* Image overlay glow */}
-                  <div className="absolute inset-0 bg-gradient-to-tr from-cyan-500/10 via-transparent to-blue-500/10 hover:opacity-50 transition-opacity duration-500"></div>
+                  {/* Enhanced image overlay glow */}
+                  <div className="absolute inset-0 bg-gradient-to-tr from-cyan-500/20 via-transparent to-blue-500/20 hover:opacity-50 transition-opacity duration-500"></div>
                 </div>
               </div>
             </div>
 
-            {/* Enhanced Content */}
+            {/* Enhanced Content with better text backgrounds */}
             <div ref={contentRef} className="space-y-8">
-              <div>
-                <h2 className="text-4xl md:text-6xl font-bold mb-8 text-white relative">
-                  <span className="relative inline-block">
-                    <span className="absolute inset-0 bg-gradient-to-r from-cyan-300 via-blue-400 to-indigo-300 bg-clip-text text-transparent blur-sm"></span>
-                    <span className="relative bg-gradient-to-r from-cyan-200 via-blue-300 to-indigo-200 bg-clip-text text-transparent font-black tracking-wide"
-                          style={{ textShadow: '0 0 30px rgba(59, 130, 246, 0.4)' }}>
-                      About Me
+              <div className="relative">
+                {/* Enhanced background for title */}
+                <div className="absolute -inset-4 bg-black/60 backdrop-blur-sm rounded-2xl border border-cyan-400/30"></div>
+                <div className="absolute -inset-4 bg-gradient-to-r from-cyan-500/10 via-blue-500/10 to-indigo-500/10 rounded-2xl blur-lg"></div>
+                
+                <div className="relative p-4">
+                  <h2 className="text-4xl md:text-6xl font-bold mb-8 text-white relative">
+                    <span className="relative inline-block">
+                      <span className="absolute inset-0 bg-gradient-to-r from-cyan-300 via-blue-400 to-indigo-300 bg-clip-text text-transparent blur-sm"></span>
+                      <span className="relative bg-gradient-to-r from-cyan-200 via-blue-300 to-indigo-200 bg-clip-text text-transparent font-black tracking-wide"
+                            style={{ textShadow: '0 0 30px rgba(59, 130, 246, 0.4)' }}>
+                        About Me
+                      </span>
                     </span>
-                  </span>
-                </h2>
-                <p className="text-lg text-white/80 leading-relaxed relative">
-                  I'm a passionate developer who specializes in creating <span className="text-cyan-400 font-medium">immersive digital experiences</span>. 
-                  With expertise in modern web technologies and a keen eye for design, I bring ideas to life 
-                  through <span className="text-blue-400 font-medium">innovative solutions</span> and cutting-edge animations.
-                </p>
+                  </h2>
+                  
+                  {/* Enhanced background for description */}
+                  <div className="relative">
+                    <div className="absolute -inset-2 bg-black/40 backdrop-blur-sm rounded-xl border border-blue-400/20"></div>
+                    <p className="relative text-lg text-white leading-relaxed p-4" style={{ textShadow: '0 2px 4px rgba(0, 0, 0, 0.8)' }}>
+                      I'm a passionate developer who specializes in creating <span className="text-cyan-300 font-medium">immersive digital experiences</span>. 
+                      With expertise in modern web technologies and a keen eye for design, I bring ideas to life 
+                      through <span className="text-blue-300 font-medium">innovative solutions</span> and cutting-edge animations.
+                    </p>
+                  </div>
+                </div>
               </div>
 
-              {/* Enhanced Skills Grid */}
+              {/* Enhanced Skills Grid with better backgrounds */}
               <div ref={skillsRef} className="space-y-6">
-                <h3 className="text-2xl font-semibold text-white relative">
-                  <span className="bg-gradient-to-r from-cyan-300 to-blue-300 bg-clip-text text-transparent">
-                    Skills & Technologies
-                  </span>
-                </h3>
+                <div className="relative">
+                  <div className="absolute -inset-2 bg-black/50 backdrop-blur-sm rounded-xl border border-cyan-400/20"></div>
+                  <h3 className="relative text-2xl font-semibold text-white p-4">
+                    <span className="bg-gradient-to-r from-cyan-300 to-blue-300 bg-clip-text text-transparent drop-shadow-lg">
+                      Skills & Technologies
+                    </span>
+                  </h3>
+                </div>
+                
                 <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
                   {skills.map((skill, index) => (
                     <div
                       key={skill.name}
-                      className="group relative p-6 bg-white/5 backdrop-blur-sm rounded-xl border border-cyan-400/20 hover:border-cyan-400/60 hover:shadow-lg hover:shadow-cyan-500/20 transition-all duration-500 text-center hover:bg-gradient-to-br hover:from-cyan-500/5 hover:to-blue-500/5 hover:scale-105"
+                      className="group relative p-6 bg-black/50 backdrop-blur-sm rounded-xl border border-cyan-400/40 hover:border-cyan-400/80 hover:shadow-2xl hover:shadow-cyan-500/40 transition-all duration-500 text-center hover:bg-gradient-to-br hover:from-cyan-500/20 hover:to-blue-500/20 hover:scale-105"
                       style={{ animationDelay: `${index * 0.1}s` }}
                     >
-                      {/* Skill card glow effect */}
-                      <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/0 via-blue-500/0 to-indigo-500/0 group-hover:from-cyan-500/10 group-hover:via-blue-500/10 group-hover:to-indigo-500/10 rounded-xl transition-all duration-500 blur-sm"></div>
+                      {/* Enhanced skill card glow effect */}
+                      <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/0 via-blue-500/0 to-indigo-500/0 group-hover:from-cyan-500/20 group-hover:via-blue-500/20 group-hover:to-indigo-500/20 rounded-xl transition-all duration-500 blur-sm"></div>
                       
                       <div className="relative z-10">
                         <div className="text-3xl mb-3 group-hover:scale-110 transition-transform duration-300">
                           {skill.icon}
                         </div>
-                        <p className="text-sm text-white/90 font-medium group-hover:text-cyan-300 transition-colors duration-300">
+                        <p className="text-sm text-white font-medium group-hover:text-cyan-300 transition-colors duration-300 drop-shadow-lg">
                           {skill.name}
                         </p>
                       </div>
                       
-                      {/* Scan line effect on hover */}
-                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-cyan-400/20 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700 skew-x-12 rounded-xl"></div>
+                      {/* Enhanced scan line effect on hover */}
+                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-cyan-400/30 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700 skew-x-12 rounded-xl"></div>
                     </div>
                   ))}
                 </div>

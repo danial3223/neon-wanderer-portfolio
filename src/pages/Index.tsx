@@ -60,13 +60,13 @@ const Index = () => {
       {/* Fixed Background Image */}
       <div className="fixed inset-0 z-0">
         <img
-          src="/lovable-uploads/c609a5db-3f2e-4787-a406-17e114bd368b.png"
-          alt="Futuristic Gradient Background"
+          src="/lovable-uploads/18e8093b-6a22-42c6-827d-9e1b873344a4.png"
+          alt="Elegant Cyan Curves Background"
           className="w-full h-full object-cover"
           loading="eager"
           decoding="sync"
         />
-        <div className="absolute inset-0 bg-black/20"></div>
+        <div className="absolute inset-0 bg-black/10"></div>
       </div>
 
       <div ref={scrollRef} data-scroll-container className="relative z-10 min-h-screen text-white overflow-hidden">

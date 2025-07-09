@@ -71,7 +71,9 @@ const Index = () => {
 
       <div ref={scrollRef} data-scroll-container className="relative z-10 min-h-screen text-white overflow-hidden">
         <Navigation />
-        <About />
+        <section id="home" className="min-h-screen">
+          <About />
+        </section>
         <Projects />
         <Achievements />
         <Contact />

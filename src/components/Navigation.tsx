@@ -49,8 +49,8 @@ const Navigation = () => {
             {[
               { name: 'Home', id: 'home' },
               { name: 'About', id: 'about' },
-              { name: 'Projects', id: 'projects' },
               { name: 'Achievements', id: 'achievements' },
+              { name: 'Projects', id: 'projects' },
               { name: 'Contact', id: 'contact' }
             ].map((item) => (
               <button
@@ -90,8 +90,8 @@ const Navigation = () => {
             {[
               { name: 'Home', id: 'home' },
               { name: 'About', id: 'about' },
-              { name: 'Projects', id: 'projects' },
               { name: 'Achievements', id: 'achievements' },
+              { name: 'Projects', id: 'projects' },
               { name: 'Contact', id: 'contact' }
             ].map((item) => (
               <button

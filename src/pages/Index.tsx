@@ -5,8 +5,8 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import LocomotiveScroll from 'locomotive-scroll';
 import 'locomotive-scroll/dist/locomotive-scroll.css';
 import About from '../components/About';
-import Projects from '../components/Projects';
 import Achievements from '../components/Achievements';
+import Projects from '../components/Projects';
 import Contact from '../components/Contact';
 import Footer from '../components/Footer';
 import Navigation from '../components/Navigation';
@@ -74,8 +74,8 @@ const Index = () => {
         <section id="home" className="min-h-screen">
           <About />
         </section>
-        <Projects />
         <Achievements />
+        <Projects />
         <Contact />
         <Footer />
       </div>

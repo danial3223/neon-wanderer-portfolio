@@ -46,12 +46,11 @@ const Achievements = () => {
   const handleLike = (itemId: number) => {
     console.log('Like button clicked for item:', itemId);
     
+    const isCurrentlyLiked = likedItems.includes(itemId);
+    console.log('Is currently liked:', isCurrentlyLiked);
+    
     setLikedItems(prev => {
-      const isLiked = prev.includes(itemId);
-      console.log('Current liked items:', prev);
-      console.log('Is currently liked:', isLiked);
-      
-      if (isLiked) {
+      if (isCurrentlyLiked) {
         return prev.filter(id => id !== itemId);
       } else {
         return [...prev, itemId];
@@ -61,7 +60,6 @@ const Achievements = () => {
     setAchievementItems(prev => 
       prev.map(item => {
         if (item.id === itemId) {
-          const isCurrentlyLiked = likedItems.includes(itemId);
           const newLikes = isCurrentlyLiked ? item.likes - 1 : item.likes + 1;
           console.log('Updating likes for item:', itemId, 'from', item.likes, 'to', newLikes);
           return { ...item, likes: newLikes };

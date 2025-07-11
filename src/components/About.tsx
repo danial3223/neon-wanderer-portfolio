@@ -299,11 +299,20 @@ const About = () => {
                   {/* Enhanced background for description */}
                   <div className="relative">
                     <div className="absolute -inset-2 bg-black/40 backdrop-blur-sm rounded-xl border border-blue-400/20"></div>
-                    <p className="relative text-lg text-white leading-relaxed p-4" style={{ textShadow: '0 2px 4px rgba(0, 0, 0, 0.8)' }}>
-                      I'm a passionate developer who specializes in creating <span className="text-cyan-300 font-medium">immersive digital experiences</span>. 
-                      With expertise in modern web technologies and a keen eye for design, I bring ideas to life 
-                      through <span className="text-blue-300 font-medium">innovative solutions</span> and cutting-edge animations.
-                    </p>
+                    <div className="relative p-4 space-y-4">
+                      <p className="text-lg text-white leading-relaxed" style={{ textShadow: '0 2px 4px rgba(0, 0, 0, 0.8)' }}>
+                        I am <span className="text-cyan-300 font-medium">Pirzada Hanan</span>, a dedicated 10th-grade student currently studying at 
+                        <span className="text-blue-300 font-medium"> PW (Physics Wallah)</span>. I completed my 9th grade at IEI, located in Bemina, Srinagar.
+                      </p>
+                      <p className="text-lg text-white leading-relaxed" style={{ textShadow: '0 2px 4px rgba(0, 0, 0, 0.8)' }}>
+                        Throughout my academic journey, I have consistently scored <span className="text-cyan-300 font-medium">top grades in every session</span>, 
+                        driven by a strong passion for <span className="text-blue-300 font-medium">science, technology, and AI projects</span>.
+                      </p>
+                      <p className="text-lg text-white leading-relaxed" style={{ textShadow: '0 2px 4px rgba(0, 0, 0, 0.8)' }}>
+                        I thrive on exploring new ideas and transforming concepts into <span className="text-cyan-300 font-medium">meaningful, real-world learning experiences</span> 
+                        through <span className="text-blue-300 font-medium">innovative solutions</span> and cutting-edge technologies.
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>

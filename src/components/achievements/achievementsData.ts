@@ -1,4 +1,3 @@
-
 import { AchievementItem, Tab } from './types';
 import { GraduationCap, Award, FileText, Trophy, Target } from 'lucide-react';
 
@@ -46,6 +45,15 @@ export const achievementsData: AchievementItem[] = [
     category: 'certificate',
     likes: 51,
     image: '/lovable-uploads/d0fe4b18-871b-4a52-b968-409898268173.png',
+  },
+  {
+    id: 21,
+    title: 'PWNSAT 2024 - Physics Wallah Rankers Certificate',
+    description: 'Vidyapeeth Rankers Certificate for achieving All India Rank (AIR) of 1001 in PWNSAT 2024 conducted by Physics Wallah. Recognized for exceptional dedication and impressive performance in 9th class.',
+    date: '2024',
+    category: 'scholarship',
+    likes: 45,
+    image: '/lovable-uploads/7d6d65b8-cb89-464b-92db-3f980fb73aa7.png',
   },
   {
     id: 15,

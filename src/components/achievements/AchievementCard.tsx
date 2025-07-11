@@ -10,6 +10,8 @@ interface AchievementCardProps {
 }
 
 const AchievementCard = ({ item, isLiked, onLike, onClick }: AchievementCardProps) => {
+  const isClickable = (item.category === 'certificate' || item.category === 'academic' || item.category === 'scholarship') && item.image;
+  
   return (
     <div className="bg-white/10 backdrop-blur-sm rounded-xl border border-white/20 p-6 hover:border-cyan-400/50 transition-all duration-300 hover:scale-105">
       {item.image && (
@@ -18,9 +20,9 @@ const AchievementCard = ({ item, isLiked, onLike, onClick }: AchievementCardProp
             src={item.image}
             alt={item.title}
             className={`w-full h-48 object-cover rounded-lg border border-white/20 ${
-              item.category === 'certificate' ? 'cursor-pointer hover:opacity-80 transition-opacity' : ''
+              isClickable ? 'cursor-pointer hover:opacity-80 transition-opacity' : ''
             }`}
-            onClick={() => onClick(item)}
+            onClick={() => isClickable && onClick(item)}
           />
         </div>
       )}
@@ -46,8 +48,10 @@ const AchievementCard = ({ item, isLiked, onLike, onClick }: AchievementCardProp
       
       <div className="flex justify-between items-center pt-3 border-t border-white/10">
         <span className="text-white/60 text-sm">{item.likes} likes</span>
-        {item.image && item.category === 'certificate' && (
-          <span className="text-cyan-400 text-xs">Click image to view full certificate</span>
+        {isClickable && (
+          <span className="text-cyan-400 text-xs">
+            Click image to view {item.category === 'certificate' ? 'certificate' : 'full document'}
+          </span>
         )}
       </div>
     </div>

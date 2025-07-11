@@ -1,3 +1,4 @@
+
 import { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -11,7 +12,7 @@ import CertificateModal from './CertificateModal';
 const Achievements = () => {
   const [activeTab, setActiveTab] = useState('certificates');
   const [likedItems, setLikedItems] = useState<number[]>([]);
-  const [selectedCertificate, setSelectedCertificate] = useState<{
+  const [selectedItem, setSelectedItem] = useState<{
     title: string;
     image?: string;
     description: string;
@@ -49,9 +50,9 @@ const Achievements = () => {
     );
   };
 
-  const handleCertificateClick = (item: AchievementItem) => {
-    if (item.category === 'certificate' && item.image) {
-      setSelectedCertificate({
+  const handleItemClick = (item: AchievementItem) => {
+    if ((item.category === 'certificate' || item.category === 'academic' || item.category === 'scholarship') && item.image) {
+      setSelectedItem({
         title: item.title,
         image: item.image,
         description: item.description,
@@ -98,17 +99,17 @@ const Achievements = () => {
                 item={item}
                 isLiked={likedItems.includes(item.id)}
                 onLike={handleLike}
-                onClick={handleCertificateClick}
+                onClick={handleItemClick}
               />
             ))}
           </div>
         </div>
       </section>
 
-      {selectedCertificate && (
+      {selectedItem && (
         <CertificateModal
-          certificate={selectedCertificate}
-          onClose={() => setSelectedCertificate(null)}
+          certificate={selectedItem}
+          onClose={() => setSelectedItem(null)}
         />
       )}
     </>

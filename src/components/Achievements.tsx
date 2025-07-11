@@ -12,6 +12,7 @@ import CertificateModal from './CertificateModal';
 const Achievements = () => {
   const [activeTab, setActiveTab] = useState('certificates');
   const [likedItems, setLikedItems] = useState<number[]>([]);
+  const [achievementItems, setAchievementItems] = useState<AchievementItem[]>(achievementsData);
   const [selectedItem, setSelectedItem] = useState<{
     title: string;
     image?: string;
@@ -43,10 +44,30 @@ const Achievements = () => {
   }, []);
 
   const handleLike = (itemId: number) => {
-    setLikedItems(prev => 
-      prev.includes(itemId) 
-        ? prev.filter(id => id !== itemId)
-        : [...prev, itemId]
+    console.log('Like button clicked for item:', itemId);
+    
+    setLikedItems(prev => {
+      const isLiked = prev.includes(itemId);
+      console.log('Current liked items:', prev);
+      console.log('Is currently liked:', isLiked);
+      
+      if (isLiked) {
+        return prev.filter(id => id !== itemId);
+      } else {
+        return [...prev, itemId];
+      }
+    });
+
+    setAchievementItems(prev => 
+      prev.map(item => {
+        if (item.id === itemId) {
+          const isCurrentlyLiked = likedItems.includes(itemId);
+          const newLikes = isCurrentlyLiked ? item.likes - 1 : item.likes + 1;
+          console.log('Updating likes for item:', itemId, 'from', item.likes, 'to', newLikes);
+          return { ...item, likes: newLikes };
+        }
+        return item;
+      })
     );
   };
 
@@ -61,7 +82,7 @@ const Achievements = () => {
     }
   };
 
-  const filteredAchievements = achievementsData.filter(item => {
+  const filteredAchievements = achievementItems.filter(item => {
     switch (activeTab) {
       case 'academic':
         return item.category === 'academic';
